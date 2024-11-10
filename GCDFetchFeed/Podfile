@@ -1,5 +1,5 @@
 # platform :ios, '7.0'
-use_frameworks!
+use_frameworks! :linkage => :static
 target 'GCDFetchFeed' do
 	pod 'SDWebImage'
 	pod 'Masonry'
