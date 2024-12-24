@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0866301927293784009D4501 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 0866301727293784009D4501 /* fishhook.c */; };
+		086BF93C2D1A568A00477659 /* ClsIsInitial.mm in Sources */ = {isa = PBXBuildFile; fileRef = 086BF93B2D1A568A00477659 /* ClsIsInitial.mm */; };
 		0A12F26E1DE96864002ED910 /* STMURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A12F2671DE96864002ED910 /* STMURLCache.m */; };
 		0A12F26F1DE96864002ED910 /* STMURLCacheMk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A12F2691DE96864002ED910 /* STMURLCacheMk.m */; };
 		0A12F2701DE96864002ED910 /* STMURLCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A12F26B1DE96864002ED910 /* STMURLCacheModel.m */; };
@@ -90,6 +91,8 @@
 /* Begin PBXFileReference section */
 		0866301727293784009D4501 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
 		0866301827293784009D4501 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		086BF93A2D1A568A00477659 /* ClsIsInitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClsIsInitial.h; sourceTree = "<group>"; };
+		086BF93B2D1A568A00477659 /* ClsIsInitial.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ClsIsInitial.mm; sourceTree = "<group>"; };
 		0A12F2661DE96864002ED910 /* STMURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMURLCache.h; sourceTree = "<group>"; };
 		0A12F2671DE96864002ED910 /* STMURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMURLCache.m; sourceTree = "<group>"; };
 		0A12F2681DE96864002ED910 /* STMURLCacheMk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMURLCacheMk.h; sourceTree = "<group>"; };
@@ -245,6 +248,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		086BF9372D1A561600477659 /* ClsIsInitial */ = {
+			isa = PBXGroup;
+			children = (
+				086BF93A2D1A568A00477659 /* ClsIsInitial.h */,
+				086BF93B2D1A568A00477659 /* ClsIsInitial.mm */,
+			);
+			path = ClsIsInitial;
+			sourceTree = "<group>";
+		};
 		0A149B991DE5C9210000D58F /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +293,7 @@
 		0A35AD421F45B2D000780172 /* SMMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				086BF9372D1A561600477659 /* ClsIsInitial */,
 				3AF1BC692CDCD6DA00222BE1 /* AppLaunch */,
 				3AF1BC642CDCC83200222BE1 /* CallTrace */,
 				3AF1BC632CDCC4D500222BE1 /* CPUAndLag */,
@@ -647,7 +660,7 @@
 				3EE311341C4E1F0800103FA3 /* Sources */,
 				3EE311351C4E1F0800103FA3 /* Frameworks */,
 				3EE311361C4E1F0800103FA3 /* Resources */,
-				D0A116FD22A112262E733CA8 /* [CP] Copy Pods Resources */,
+				B099CBA5F2E63AB7088704EB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -767,26 +780,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D0A116FD22A112262E733CA8 /* [CP] Copy Pods Resources */ = {
+		B099CBA5F2E63AB7088704EB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GCDFetchFeed/Pods-GCDFetchFeed-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/DTCoreText/Resources.bundle",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-GCDFetchFeed/Pods-GCDFetchFeed-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/DTCoreText/DTCoreText.framework",
+				"${BUILT_PRODUCTS_DIR}/DTFoundation/DTFoundation.framework",
+				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/Ono/Ono.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Resources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTCoreText.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTFoundation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Ono.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GCDFetchFeed/Pods-GCDFetchFeed-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GCDFetchFeed/Pods-GCDFetchFeed-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F53889DF393E4DEE898D14BE /* [CP] Check Pods Manifest.lock */ = {
@@ -815,6 +844,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A35AD621F45B34C00780172 /* SMCallLib.m in Sources */,
+				086BF93C2D1A568A00477659 /* ClsIsInitial.mm in Sources */,
 				3EA7BF8A1C57781600055544 /* NSDate+InternetDateTime.m in Sources */,
 				0A35AD4E1F45B32E00780172 /* SMLagButton.m in Sources */,
 				3E8341F51C525ADD002C3EAA /* SMFeedListCellViewModel.m in Sources */,

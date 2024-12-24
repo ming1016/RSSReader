@@ -20,6 +20,7 @@
 #import "AppLaunchTime.h"
 #import "SMCallTrace.h"
 #import "MetricsSubscriber.h"
+#import "ClsIsInitial.h"
 
 @interface AppDelegate ()
 @property (nonatomic, assign) os_log_t log;
@@ -30,18 +31,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // 在应用启动时创建 MetricsSubscriber 实例
+    // MetricsSubscriber instance
     self.metricsSubscriber = [[MetricsSubscriber alloc] init];
-//    [SMCallTrace start];
+    // hook msg_send start
+    [SMCallTrace start];
+    
     self.log = [AppLaunchTime creatWithBundleId:"com.starming.log" key:"launch"]; // 渲染时间
     [AppLaunchTime beginTime:self.log];
-    // 监测方法耗时，需要时打开注释
+    // trace demo
 //    [SMCallTraceDemo test];
     
-    //这里是做卡顿监测
+    // Lag monitor
 //    [[SMLagMonitor shareInstance] beginMonitor];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    //首页
+    // Root view controller
     SMRootViewController *rootVC = [[SMRootViewController alloc] init];
     UINavigationController *homeNav = [self styleNavigationControllerWithRootController:rootVC];
     self.window.rootViewController = homeNav;
@@ -49,13 +52,19 @@
     return YES;
 }
 
-// 渲染完成
+// Render done
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [AppLaunchTime mark]; // 进程启动开始，到渲染完成的时间
+    [AppLaunchTime mark]; // process to render done time
     [AppLaunchTime endTime:self.log];
     [AppLaunchTime stopMonitoring];
-//    [SMCallTrace stop];
-//    [SMCallTrace save];
+    
+    // hook msg_send stop
+    [SMCallTrace stop];
+    [SMCallTrace save];
+    
+    // classes initial
+    NSArray *arr = [ClsIsInitial initializedClasses];
+    NSLog(@"%@", arr);
 }
 
 - (UINavigationController *)styleNavigationControllerWithRootController:(UIViewController *)vc {
@@ -68,7 +77,7 @@
     return nav;
 }
 
-// MARK: - 代码覆盖回调函数
+// MARK: - Code coverage callback function
 //void __sanitizer_cov_trace_pc_guard_init(uint32_t *start,
 //                                         uint32_t *stop) {
 //    static uint64_t N;

@@ -1,7 +1,7 @@
 # platform :ios, '7.0'
-use_frameworks! :linkage => :static
+use_frameworks!
 target 'GCDFetchFeed' do
-	pod 'SDWebImage'
+	pod 'SDWebImage', '=4.0'
 	pod 'Masonry'
 	pod 'MJRefresh'
 	pod 'JSONModel'
