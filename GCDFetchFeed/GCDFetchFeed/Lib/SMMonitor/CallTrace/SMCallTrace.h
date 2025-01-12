@@ -11,13 +11,13 @@
 
 
 @interface SMCallTrace : NSObject
-+ (void)start; //开始记录
++ (void)start; // Start record
 + (void)startWithMaxDepth:(int)depth;
 + (void)startWithMinCost:(double)ms;
 + (void)startWithMaxDepth:(int)depth minCost:(double)ms;
-+ (void)stop; //停止记录
-+ (void)save; //保存和打印记录，如果不是短时间 stop 的话使用 saveAndClean
-+ (void)stopSaveAndClean; //停止保存打印并进行内存清理
++ (void)stop; // Stop record
++ (void)save; // Save and print record, if not short time use saveAndClean.
++ (void)stopSaveAndClean; // Stop save, print停止保存打印并进行内存清理
 //int smRebindSymbols(struct smRebinding rebindings[], size_t rebindings_nel);
 
 @end

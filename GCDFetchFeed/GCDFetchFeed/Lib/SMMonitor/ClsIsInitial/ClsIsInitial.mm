@@ -133,7 +133,7 @@ public:
     class_rw_t* data() {
         return bits.data();
     }
-    
+
     // get meta class object
     lazyFake_objc_class* metaClass() {
         // return real address
